@@ -1,4 +1,4 @@
-﻿body {
+body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     color: #333;
@@ -33,6 +33,7 @@ a {
     padding: 1rem;
     position: fixed;
     top: 0;
+    left: 0;
     width: 100%;
     z-index: 1;
 }
@@ -66,11 +67,15 @@ a {
     #skills ul {
         margin: 0;
         padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     #skills li {
         display: inline-block;
-        width: 45%;
+        width: 100%;
+        max-width: 300px;
         margin: 0.5rem;
         padding: 1rem;
         text-align: center;
@@ -79,7 +84,7 @@ a {
         border-radius: 4px;
     }
 
-/* Survey form section */
+/* Survey form and Roman numeral converter sections */
 .project {
     padding: 4rem 0;
 }
@@ -88,58 +93,81 @@ a {
         text-align: center;
     }
 
+/* Survey form section */
+.survey-form {
+    padding: 4rem 0;
+}
+
+    .survey-form h2 {
+        text-align: center;
+    }
+
 .survey-form-content {
     max-width: 960px;
     margin: 0 auto;
-}
-
-/* Toggle survey form button */
-#survey-form button,
-#roman-numeral-converter .project-button {
-    display: block;
-    margin: 1rem auto;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-    text-align: center;
-}
-
-    #survey-form button:hover,
-    #roman-numeral-converter .project-button:hover {
-        background-color: #3e8e41;
-    }
-
-
-/*Roaman numaral converter*/
-.project-button {
-    display: block;
-    margin: 1rem auto;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-    text-align: center;
-}
-
-    .project-button:hover {
-        background-color: #3e8e41;
-    }
-.code-container {
+    padding: 1rem;
     background-color: #fff;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     border-radius: 4px;
+}
+
+/* Toggle survey form button */
+.survey-form button {
+    display: block;
+    margin: 1rem auto;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+}
+
+    .survey-form button:hover {
+        background-color: #3e8e41;
+    }
+
+/* Responsive design */
+@media (max-width: 768px) {
+    #skills li {
+        width: 100%;
+        max-width: none;
+    }
+
+    .survey-form-content {
+        padding: 1rem;
+    }
+}
+
+
+.code-container {
+    max-width: 960px;
+    margin: 0 auto;
     padding: 1rem;
-    white-space: pre-wrap;
-    font-family: monospace;
-    /* Work experience section */
-    #experience, #education {
+}
+
+/* Buttons */
+button, .project-button {
+    display: block;
+    margin: 1rem auto;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+}
+
+    button:hover, .project-button:hover {
+        background-color: #3e8e41;
+    }
+
+/* Work experience and education sections */
+#experience, #education {
     padding: 4rem 0;
 }
 
@@ -147,6 +175,21 @@ a {
     overflow: hidden;
     margin-bottom: 1rem;
 }
+
+.tab-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    margin: 0.5rem;
+}
+    .tab-button:hover {
+        background-color: #333;
+    }
 
 .tablinks {
     background-color: #007bff;
@@ -198,18 +241,12 @@ a {
     display: none;
 }
 
-
-
-#survey-form button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
+/* Responsive design */
+@media (max-width: 768px) {
+    #skills li {
+        width: 100%;
+        max-width: none;
+    }
 }
 
-    #survey-form button:hover {
-        background-color: #3e8e41;
-    }
+  
