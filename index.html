@@ -58,8 +58,18 @@
 
 <body>
     <nav id="navbar">
-        <a href="#welcome-section">Welcome</a>
+       
+        <button id="night-mode-toggle">Night Mode</button>
     </nav>
+
+    <script>
+        document.getElementById("night-mode-toggle").addEventListener("click", toggleNightMode);
+
+        function toggleNightMode() {
+            document.body.classList.toggle("night-mode");
+        }
+    </script>
+
     <section id="welcome-section">
         <h1>Welcome to My Portfolio</h1>
     </section>
@@ -138,7 +148,7 @@
                 const isPalindromeResult = isPalindrome(palindromeStr);
                 algorithmsOutput.innerHTML += "<p>The string \"" + palindromeStr + "\" is " + (isPalindromeResult ? "a palindrome" : "not a palindrome") + "</p>";
 
-              
+
             }
         </script>
 
