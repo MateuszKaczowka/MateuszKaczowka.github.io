@@ -1,0 +1,212 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio</title>
+    <link rel="stylesheet" href="stylesheet1.css">
+    <script>
+        function toggleSurveyForm() {
+            const surveyFormContainer = document.querySelector(".survey-form-content");
+            surveyFormContainer.classList.toggle("hidden");
+        }
+
+        function toggleRomanNumeralConverter() {
+            const romanNumeralConverterCode = document.getElementById("romanNumeralConverterCode");
+            romanNumeralConverterCode.classList.toggle("hidden");
+        }
+
+        function convertInputToRoman() {
+            const inputNumber = document.getElementById("inputNumber").value;
+            const convertedRoman = convertToRoman(parseInt(inputNumber));
+            document.getElementById("convertedRoman").value = convertedRoman;
+        }
+
+        function openTab(evt, tabName) {
+            const tabcontent = document.getElementsByClassName("tabcontent");
+            for (let i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            const tablinks = document.getElementsByClassName("tablinks");
+            for (let i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+       
+        function convertToRoman(num) {
+            const romanNumerals = [
+                ['M', 1000],
+                ['CM', 900],
+                ['D', 500],
+                ['CD', 400],
+                ['C', 100],
+                ['XC', 90],
+                ['L', 50],
+                ['XL', 40],
+                ['X', 10],
+                ['IX', 9],
+                ['V', 5],
+                ['IV', 4],
+                ['I', 1]
+            ];
+
+            let result = '';
+
+            for (let i = 0; i < romanNumerals.length; i++) {
+                while (num >= romanNumerals[i][1]) {
+                    result += romanNumerals[i][0];
+                    num -= romanNumerals[i][1];
+                }
+            }
+
+            return result;
+        }
+       
+    </script>
+</head>
+
+<body>
+    <nav id="navbar">
+        <a href="#welcome-section">Welcome</a>
+    </nav>
+    <section id="welcome-section">
+        <h1>Welcome to My Portfolio</h1>
+    </section>
+    <section id="skills">
+        <h2>Skills and Core Qualifications</h2>
+        <h3>Technical Skills</h3>
+        <ul>
+            <li>HTML/CSS</li>
+            <li>JavaScript</li>
+            <!--   <li>React</li>-->
+            <!--  <li>Node.js</li> -->
+        </ul>
+        <h3>Soft Skills</h3>
+        <ul>
+            <li>Communication</li>
+            <li>Teamwork</li>
+            <li>Leadership</li>
+            <li>Problem Solving</li>
+            <li>Time Management</li>
+        </ul>
+        <h3>Core Qualifications</h3>
+        <ul>
+            <li>Bachelor of Science engineering technology (in progress)</li>
+            <li>Java Script Certification </li>
+            <!--  <li>react JS Certification </li> -->
+            <li>Responsive Web Design Certification</li>
+        </ul>
+    </section>
+    <main>
+        <section id="survey-form" class="project">
+            <h2>Projects I have worked on</h2>
+            <button onclick="toggleSurveyForm()">Toggle Survey Form</button>
+            <div class="survey-form-content hidden">
+                <object data="SurveyForm.html" type="text/html" style="width: 100%; height: 600px;"></object>
+            </div>
+        </section>
+
+        <section id="roman-numeral-converter" class="project">
+            <h2>Roman Numeral Converter</h2>
+            <label for="inputNumber">Enter a number:</label>
+            <input type="number" id="inputNumber" min="1">
+            <button class="project-button" onclick="convertInputToRoman()">Convert to Roman</button>
+            <label for="convertedRoman">Roman numeral:</label>
+            <input type="text" id="convertedRoman" readonly>
+        </section>
+
+        <section id="algorithms" class="project">
+            <h2>JavaScript Algorithms and Data Structures Project</h2>
+            <p>This project demonstrates my understanding of various algorithms and data structures in JavaScript.</p>
+            <button class="project-button" onclick="runAlgorithms()">Run Algorithms</button>
+            <div id="algorithms-output"></div>
+        </section>
+
+
+
+        <script>
+            function runAlgorithms() {
+                const algorithmsOutput = document.getElementById("algorithms-output");
+                algorithmsOutput.innerHTML = "";
+
+                //Find the maximum number in an array
+                const numbers = [3, 7, 1, 10, 4];
+                const maxNumber = Math.max(...numbers);
+                algorithmsOutput.innerHTML += "<p>The maximum number in the array [3, 7, 1, 10, 4] is " + maxNumber + "</p>";
+
+
+                //Check if a string is a palindrome
+                function isPalindrome(str) {
+                    str = str.toLowerCase().replace(/[\W_]/g, "");
+                    return str === str.split("").reverse().join("");
+                }
+                const palindromeStr = "A man, a plan, a canal. Panama";
+                const isPalindromeResult = isPalindrome(palindromeStr);
+                algorithmsOutput.innerHTML += "<p>The string \"" + palindromeStr + "\" is " + (isPalindromeResult ? "a palindrome" : "not a palindrome") + "</p>";
+
+              
+            }
+        </script>
+
+
+
+    </main>
+
+
+    <a id="profile-link" href="https://github.com/MateuszKaczowka" target="_blank">My GitHub Profile</a>
+    <section id="experience">
+        <h2>Work Experience</h2>
+        <div class="tab">
+            <button class="tablinks" onclick="openTab(event, 'Job1')">Job 1</button>
+            <button class="tablinks" onclick="openTab(event, 'Job2')">Job 2</button>
+        </div>
+        <div id="Job1" class="tabcontent" style="display: none;">
+            <h3>Electronics technician</h3>
+            <p>Precision Zone, Inc: 2019-2022</p>
+        </div>
+        <div id="Job2" class="tabcontent" style="display: none;">
+            <h3>Shift Supervisor</h3>
+            <p>CVS Pharmacy: 2018-2019</p>
+        </div>
+    </section>
+    <script>
+
+        function openTab(evt, tabName) {
+            const tabcontent = document.getElementsByClassName("tabcontent");
+            for (let i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            const tablinks = document.getElementsByClassName("tablinks");
+            for (let i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        function toggleCashRegisterCode() {
+            const cashRegisterCode = document.getElementById("cashRegisterCode");
+            cashRegisterCode.classList.toggle("hidden");
+        }
+    </script>
+
+    <section id="education">
+        <h2>Education</h2>
+        <div class="tab">
+            <button class="tablinks" onclick="openTab(event, 'Degree1')">Responsive Wed Design Certification</button>
+            <button class="tablinks" onclick="openTab(event, 'Degree2')">JavaScript Algorithms And DataStructures</button>
+        </div>
+        <div id="Degree1" class="tabcontent">
+            <h3>Responsive Wed Design Certification</h3>
+            <img src="ResponsiveWedDesignCertification.png" alt="Certification ScreenshotResponsiveWedDesign" class="degree-image" style="width: 50%; max-width: 100%;">
+        </div>
+
+        <div id="Degree2" class="tabcontent">
+            <img src="JavaScriptAlgorithmsAndDataStructures.png" alt="Certification ScreenshotJavaScript" class="degree-image" style="width: 50%; max-width: 100%;">
+        </div>
+    </section>
+</body>
+
+</html>
