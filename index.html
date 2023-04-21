@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -22,19 +22,8 @@
             document.getElementById("convertedRoman").value = convertedRoman;
         }
 
-        function openTab(evt, tabName) {
-            const tabcontent = document.getElementsByClassName("tabcontent");
-            for (let i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].style.display = "none";
-            }
-            const tablinks = document.getElementsByClassName("tablinks");
-            for (let i = 0; i < tablinks.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace(" active", "");
-            }
-            document.getElementById(tabName).style.display = "block";
-            evt.currentTarget.className += " active";
-        }
-       
+     
+
         function convertToRoman(num) {
             const romanNumerals = [
                 ['M', 1000],
@@ -63,7 +52,7 @@
 
             return result;
         }
-       
+
     </script>
 </head>
 
@@ -80,8 +69,8 @@
         <ul>
             <li>HTML/CSS</li>
             <li>JavaScript</li>
-            <!--   <li>React</li>-->
-            <!--  <li>Node.js</li> -->
+            <!--<li>React</li>-->
+            <!--<li>Node.js</li>-->
         </ul>
         <h3>Soft Skills</h3>
         <ul>
@@ -102,8 +91,11 @@
     <main>
         <section id="survey-form" class="project">
             <h2>Projects I have worked on</h2>
-            <button onclick="toggleSurveyForm()">Toggle Survey Form</button>
-            <div class="survey-form-content hidden">
+            <h3>Survey Form</h3>
+            <!-- Remove the button element below -->
+            <!-- <button onclick="toggleSurveyForm()">Toggle Survey Form</button> -->
+            <div class="survey-form-content">
+
                 <object data="SurveyForm.html" type="text/html" style="width: 100%; height: 600px;"></object>
             </div>
         </section>
@@ -159,8 +151,8 @@
     <section id="experience">
         <h2>Work Experience</h2>
         <div class="tab">
-            <button class="tablinks" onclick="openTab(event, 'Job1')">Job 1</button>
-            <button class="tablinks" onclick="openTab(event, 'Job2')">Job 2</button>
+            <button class="tablinks tab-button" onclick="openTab(event, 'Job1')">Job 1</button>
+            <button class="tablinks tab-button" onclick="openTab(event, 'Job2')">Job 2</button>
         </div>
         <div id="Job1" class="tabcontent" style="display: none;">
             <h3>Electronics technician</h3>
@@ -198,12 +190,14 @@
             <button class="tablinks" onclick="openTab(event, 'Degree1')">Responsive Wed Design Certification</button>
             <button class="tablinks" onclick="openTab(event, 'Degree2')">JavaScript Algorithms And DataStructures</button>
         </div>
+
+        </div>
         <div id="Degree1" class="tabcontent">
             <h3>Responsive Wed Design Certification</h3>
             <img src="ResponsiveWedDesignCertification.png" alt="Certification ScreenshotResponsiveWedDesign" class="degree-image" style="width: 50%; max-width: 100%;">
         </div>
 
-        <div id="Degree2" class="tabcontent">
+        <div id="Degree2" class="tabcontent hidden">
             <img src="JavaScriptAlgorithmsAndDataStructures.png" alt="Certification ScreenshotJavaScript" class="degree-image" style="width: 50%; max-width: 100%;">
         </div>
     </section>
